@@ -4,3 +4,5 @@
 
 /.vs
 /PbSystem/obj/Debug/net8.0
+/PbSystem/bin/Release/net8.0
+/PbSystem/obj/Release/net8.0
