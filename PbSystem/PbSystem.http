@@ -1,0 +1,6 @@
+@PbSystem_HostAddress = http://localhost:5210
+
+GET {{PbSystem_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
