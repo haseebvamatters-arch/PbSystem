@@ -22,7 +22,7 @@ builder.Services.AddSwaggerGen(c =>
 // --- Set the listen URL BEFORE building the app ---
 // Railway provides PORT env var; fallback to 8080 if missing.
 var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
-builder.WebHost.UseUrls($"http://*:{port}");
+builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
 
 var app = builder.Build();
 
