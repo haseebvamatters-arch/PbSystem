@@ -19,23 +19,12 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-// --- Set the listen URL BEFORE building the app ---
-// Railway provides PORT env var; fallback to 8080 if missing.
-var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
-builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
 
 var app = builder.Build();
 
-// Show Swagger only in Development (move outside if you want it enabled in prod)
-if (app.Environment.IsDevelopment())
-{
+
     app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.RoutePrefix = "swagger"; // or "" for root
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "KSeF Signer Demo API v1");
-    });
-}
+    app.UseSwaggerUI();
 
 app.UseHttpsRedirection(); // keep for local dev; if Railway terminates TLS you can keep or remove
 app.UseAuthorization();
